@@ -22,23 +22,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 
 function select_all(currentIndex) {
-  // select_step2(select_step1());
-  let arr = ["/zhenxi1023/jungle", "/zhenxi1023", "/zhenxi1023/type"];
-  let r3 = /(https?:\/\/[0-9a-zA-Z.]+)/;
-  console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
-    window.open(arr[i]);
+  select_step2(select_step1());
+  // let arr = ["/zhenxi1023/jungle", "/zhenxi1023", "/zhenxi1023/type"];
+  //
+  // console.log(arr);
+  // for (let i = 0; i < arr.length; i++) {
+  //   window.open(arr[i]);
     // window.location.href = arr[i];
-  }
-  chrome.runtime.sendMessage({
-    type: "main",
-    message: arr,
-    url: window.location.href.match(r3)[0],
-    index: currentIndex
-  }, function (response) {
-    // do nothing
-    console.log(response)
-  })
+  // }
+  
 
 }
 
@@ -63,6 +55,16 @@ function select_step2(array) {
   array.forEach(function (item) {
     window.open(`/messaging/reviews?orderId=${item.href}&marketplaceId=ATVPDKIKX0DER`);
   });
+  let r3 = /(https?:\/\/[0-9a-zA-Z.]+)/;
+  chrome.runtime.sendMessage({
+    type: "main",
+    message: array,
+    url: window.location.href.match(r3)[0],
+    index: currentIndex
+  }, function (response) {
+    // do nothing
+    console.log(response)
+  })
 }
 
 
