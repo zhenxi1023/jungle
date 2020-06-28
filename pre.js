@@ -14,9 +14,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     console.log("restarting....");
     sendResponse("restart, done");
   } else if (request.message === 'select_all') {
-    select_all();
-    console.log("select_all_orders_in_page");
-    sendResponse("select all orders in page, done");
+    // select_all();
+    // console.log("select_all_orders_in_page");
+    // sendResponse("select all orders in page, done");
   }
 });
 

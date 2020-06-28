@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 
 chrome.extension.onConnect.addListener(port => {
-  console.log("connecting.....");
+  // console.log("connecting.....");
   port.onMessage.addListener(message => {
     let arr=[];
     if (window.x_tabs_records) {
@@ -40,7 +40,7 @@ chrome.extension.onConnect.addListener(port => {
       arr.push(message);
       window.x_tabs_records = arr;
     }
-    console.log("get: ", message);
+    // console.log("get: ", message);
 
 
     port.postMessage("Already got....");

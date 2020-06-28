@@ -92,12 +92,12 @@ function is_allowed_to_send_request(date) {
   }
 
   let da = new Date(n).valueOf();
-  let dStart = da + 5 * 24 * 60 * 60 * 1000;
-  let dEnd = da + 30 * 24 * 60 * 60 * 1000;
+  let d_start = da + 5 * 24 * 60 * 60 * 1000;
+  let d_end = da + 30 * 24 * 60 * 60 * 1000;
 
   let now = Date.now();
 
-  return now >= dStart && now <= dEnd;
+  return now >= d_start && now <= d_end;
 
 }
 
