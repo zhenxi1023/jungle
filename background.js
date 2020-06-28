@@ -15,12 +15,27 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         let f_tab = tab.find(it=>it.index > request.index && it.index <= request.index + arr.length);
         chrome.tabs.executeScript(f_tab.id, {file: 'operate.js'}, function (array) {
           // do nothing
-          console.log("it's ok", f_tab.id)
+          console.log("it's ok", f_tab.id);
+          sendResponse("yes...");
         })
       })
     }
+  } else if (request.type === 'account') {
+    let r4 = /&marketplaceId=(.+)/;
+    chrome.tabs.query({currentWindow: true, url: (request.url + "/orders-v3/order/"+request.message)},
+        function (tab) {
+      chrome.tabs.executeScript(tab[0].id, {file: 'ex.js'}, function (array) {
+        // do nothing
+        sendResponse("yes...")
+      })
+    })
+  } else if (request.type === 'ex') {
+    window.marketplaceId = request.message;
+    // sendResponse("yes...")
+  } else if (request.type === 'mar') {
+    sendResponse(window.marketplaceId);
   }
-  sendResponse("yes...")
+
 });
 
 
