@@ -21,28 +21,83 @@ document.addEventListener('DOMContentLoaded', function () {
     stop_ops();
   }, true);
 
-  $selectAll.addEventListener('click', function (event) {
-    select_orders_all_in_page();
-  }, true)
+
+  // $selectAll.removeEventListener('click', click, true);
+
+  $selectAll.addEventListener('click', click, {once: true});
+
+
 
 });
 
 
+let click = ()=> {
+  select_orders_all_in_page();
+};
+
+
 function select_orders_all_in_page() {
 
-  chrome.tabs.executeScript(null, {
-    file: 'main.js'
-  }, function (array) {
+  let is_main_has = chrome.extension.getBackgroundPage();
+
+  if (is_main_has.x_tabs_records) {
 
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+
+
+      // let port = chrome.extension.connect({name: 'Jungle'});
+      //
+      // port.postMessage({id: tabs[0].id});
+      // port.onMessage.addListener(message=>{
+      //   // do nothing
+      //   console.log("get message: ", message);
+      // });
+
+
       tabs.forEach(function (item) {
-        chrome.tabs.sendMessage(item.id, {message: 'select_all'}, function (response) {
+        chrome.tabs.sendMessage(item.id, {message: 'select_all', index: item.index}, function (response) {
           // do nothing
           console.log(response)
         })
-      })
-    })
-  });
+      });
+
+
+    });
+
+
+  } else {
+
+    chrome.tabs.executeScript(null, {
+      file: 'main.js'
+    }, function (array) {
+
+      chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+
+
+        let port = chrome.extension.connect({name: 'Jungle'});
+
+        port.postMessage({id: tabs[0].id});
+        port.onMessage.addListener(message=>{
+          // do nothing
+          console.log("get message: ", message);
+        });
+
+
+        tabs.forEach(function (item) {
+          chrome.tabs.sendMessage(item.id, {message: 'select_all', index: item.index}, function (response) {
+            // do nothing
+            console.log(response)
+          })
+        });
+
+
+      });
+
+
+    });
+
+  }
+
 
 }
 

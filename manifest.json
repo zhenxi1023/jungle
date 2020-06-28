@@ -7,6 +7,9 @@
     "default_popup": "popup.html",
     "permissions": ["background"]
   },
+  "background": {
+    "scripts": ["background.js"]
+  },
   "permissions": [
     "http://*/*",
     "https://*/*",
@@ -14,8 +17,11 @@
     "activeTab"
   ],
   "content_script": [{
-    "matches": ["https://www.google.com"],
+    "matches": ["https://www.github.com"],
     "js": ["main.js"]
+  }, {
+    "matches": ["https://www.github.com"],
+    "js": ["operate.js"]
   }],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
