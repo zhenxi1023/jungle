@@ -26,7 +26,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         function (tab) {
       chrome.tabs.executeScript(tab[0].id, {file: 'ex.js'}, function (array) {
         // do nothing
-        sendResponse("yes...")
+        // sendResponse("yes...")
       })
     })
   } else if (request.type === 'ex') {

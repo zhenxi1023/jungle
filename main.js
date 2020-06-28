@@ -22,8 +22,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 
 function select_all(currentIndex) {
-  get_marketplace_id(select_step1(), currentIndex);
-  // select_step2(select_step1(), currentIndex);
+  // get_marketplace_id(select_step1(), currentIndex);
+  select_step2(select_step1(), currentIndex);
   // let arr = ["/zhenxi1023/jungle", "/zhenxi1023", "/zhenxi1023/type"];
   //
   // console.log(arr);
@@ -73,9 +73,8 @@ function get_marketplace_id(array, currentIndex) {
 
 
 
-function select_step2(array, currentIndex, marketplaceId) {
+function select_step2(array, currentIndex, marketplaceId="ATVPDKIKX0DER") {
   array.forEach(function (item) {
-    let m = "ATVPDKIKX0DER";
     window.open(`/messaging/reviews?orderId=${item.href}&marketplaceId=${marketplaceId}`);
   });
   let r3 = /(https?:\/\/[0-9a-zA-Z.]+)/;
