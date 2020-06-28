@@ -50,7 +50,7 @@ function select_step1() {
     let columns = row.children; // dom td
     let date = columns[5].innerText.split("\n");
     if (is_allowed_to_send_request(date)) {
-      let href = columns[2].querySelector(".cell-body-title").children[0].href;
+      let href = columns[2].querySelector(".cell-body-title").children[0].innerText;
       return {href};
     }
   });
@@ -61,7 +61,7 @@ function select_step1() {
 
 function select_step2(array) {
   array.forEach(function (item) {
-    window.open(item.href);
+    window.open(`/messaging/reviews?orderId=${item.href}&marketplaceId=ATVPDKIKX0DER`);
   });
 }
 
