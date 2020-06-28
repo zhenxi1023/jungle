@@ -119,7 +119,7 @@ function stop_ops() {
 function start_listen() {
 
   chrome.tabs.executeScript(null, {
-    file: 'main.js'
+    file: 'pre.js'
   }, function (array) {
 
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
