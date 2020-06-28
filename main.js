@@ -22,7 +22,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 
 function select_all(currentIndex) {
-  select_step2(select_step1());
+  select_step2(select_step1(), currentIndex);
   // let arr = ["/zhenxi1023/jungle", "/zhenxi1023", "/zhenxi1023/type"];
   //
   // console.log(arr);
@@ -30,7 +30,7 @@ function select_all(currentIndex) {
   //   window.open(arr[i]);
     // window.location.href = arr[i];
   // }
-  
+
 
 }
 
@@ -51,7 +51,7 @@ function select_step1() {
 
 
 
-function select_step2(array) {
+function select_step2(array, currentIndex) {
   array.forEach(function (item) {
     window.open(`/messaging/reviews?orderId=${item.href}&marketplaceId=ATVPDKIKX0DER`);
   });
