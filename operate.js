@@ -1,4 +1,13 @@
 
+
+document.addEventListener('readystatechange', function (event) {
+  console.log('...in');
+  if(event.target.readyState === 'complete') {
+    console.log(event.target.readyState);
+    operate();
+  }
+});
+
 document.onreadystatechange = function () {
   if (document.readyState === 'complete') {
     operate();
