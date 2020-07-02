@@ -37,7 +37,8 @@ function select_all(currentIndex) {
 
 
 function select_step1() {
-  let orders = document.getElementById("orders-table").querySelectorAll("tbody > tr");
+  let ex_orders = document.getElementById("orders-table").querySelectorAll("tbody > tr");
+  let orders = [...ex_orders];
   let da = orders.map(function (item, index) {
     let row = item; // dom tr
     let columns = row.children; // dom td
