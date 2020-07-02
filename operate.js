@@ -19,6 +19,7 @@ document.onreadystatechange = function () {
 function operate() {
 
   let buttons = document.getElementById("ayb-reviews").querySelectorAll("button");
+  console.log(buttons);
   if (buttons && buttons > 1) {
     let yes = buttons[1].click();
     window.close();
