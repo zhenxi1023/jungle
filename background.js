@@ -9,8 +9,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
   if (request.type === 'main') {
     let arr = request.message;
-    for (let i = 0; i < arr.length; i++) {
-      chrome.tabs.query({currentWindow: true, url: (request.url + arr[i].href)}, function (tab) {
+    for (let i = 0; i < arr.length; i++) { // (request.url + arr[i].href)
+      chrome.tabs.query({currentWindow: true, url: `${request.url}/messaging/reviews?orderId=${arr[i].href}&marketplaceId=ATVPDKIKX0DER`}, function (tab) {
         // console.log(tab)
         let f_tab = tab.find(it=>it.index > request.index && it.index <= request.index + arr.length);
         chrome.tabs.executeScript(f_tab.id, {file: 'operate.js'}, function (array) {
