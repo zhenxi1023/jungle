@@ -8,18 +8,12 @@ document.addEventListener('readystatechange', function (event) {
   }
 });
 
-document.onreadystatechange = function () {
-  if (document.readyState === 'complete') {
-    operate();
-  }
-};
-
-
 
 function operate() {
 
   let ex_buttons = document.getElementById("ayb-reviews").querySelectorAll("button");
   let buttons = [...ex_buttons];
+  console.log(buttons);
   if (buttons && buttons > 1) {
     let yes = buttons[1].click();
     window.close();
