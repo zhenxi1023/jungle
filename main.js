@@ -48,7 +48,7 @@ function select_step1() {
       return {href};
     }
   });
-  return da;
+  return da.filter(it=>it);
 }
 
 
