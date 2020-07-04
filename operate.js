@@ -1,5 +1,7 @@
 
 
+
+
 document.addEventListener('readystatechange', function (event) {
   console.log('...in');
   if(event.target.readyState === 'complete') {
@@ -9,15 +11,24 @@ document.addEventListener('readystatechange', function (event) {
 });
 
 
+document.body.addEventListener("DOMNodeRemoved", function () {
+  window.close();
+});
+
+
 function operate() {
 
   let ex_buttons = document.getElementById("ayb-reviews").querySelectorAll("button");
-  let buttons = [...ex_buttons];
-  console.log(buttons);
-  if (buttons && buttons.length > 1) {
-    let yes = buttons[1].click();
+
+  if (!ex_buttons || ex_buttons.length !== 2) {
     window.close();
+  } else {
+    let buttons = [...ex_buttons];
+    console.log(buttons);
+    let yes = buttons[1].click();
+
   }
+
 
 }
 

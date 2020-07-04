@@ -43,10 +43,10 @@ function select_step1() {
     let row = item; // dom tr
     let columns = row.children; // dom td
     let date = columns[5].innerText.split("\n");
-    if (is_allowed_to_send_request(date)) {
+    // if (is_allowed_to_send_request(date)) {
       let href = columns[2].querySelector(".cell-body-title").children[0].innerText;
       return {href};
-    }
+    // }
   });
   return da.filter(it=>it);
 }

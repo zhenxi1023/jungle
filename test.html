@@ -13,7 +13,7 @@
 <body>
 <div style="text-align: center">
     <div id="test">
-        <a href="localhost:7001/aaa" onclick="console.log('hello world')">link1</a>
+        <a href="localhost:7001/aaa" onclick="console.log('hello world')">linktest</a>
     </div>
     <div>
         <a href="localhost:7001/aaa" target="_blank">link1</a>
@@ -158,5 +158,18 @@
     </div>
 </div>
 </body>
+<script>
+  document.body.addEventListener("DOMNodeRemoved", function (event) {
+    console.log(event)
+  });
+
+  document.addEventListener('readystatechange', function (event) {
+    console.log('...in');
+    if(event.target.readyState === 'complete') {
+      console.log(event.target.readyState);
+      // operate();
+    }
+  });
+</script>
 <!--<script type="application/javascript" src="./test.js"></script>-->
 </html>
