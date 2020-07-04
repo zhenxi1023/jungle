@@ -12,6 +12,7 @@ document.addEventListener('readystatechange', function (event) {
 
 
 document.body.addEventListener("DOMNodeRemoved", function (event) {
+  console.log(event.target)
   if (event.target.id === "ayb-reviews") {
     console.log("ayb-reviews")
   }
@@ -21,8 +22,9 @@ document.body.addEventListener("DOMNodeRemoved", function (event) {
 function operate() {
 
   let ex_buttons = document.getElementById("ayb-reviews").querySelectorAll("button");
+  let b = [...ex_buttons];
 
-  if (!ex_buttons || [...ex_buttons].length !== 2) {
+  if (!ex_buttons || b.length !== 2) {
     window.close();
   } else {
     let buttons = [...ex_buttons];
