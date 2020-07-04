@@ -30,6 +30,9 @@ function operate() {
   } else {
     let buttons = [...ex_buttons];
     console.log(buttons);
+    buttons[1].onclick=function(){
+      console.log("yes: ", document.querySelectorAll('button'))
+    };
     let yes = buttons[1].click();
 
   }
@@ -37,11 +40,6 @@ function operate() {
 
 }
 
-
-window.onload = function (event) {
-  let ex_buttons = document.getElementById("ayb-reviews").querySelectorAll("button");
-  console.log("onload: ", ex_buttons)
-}
 
 
 
