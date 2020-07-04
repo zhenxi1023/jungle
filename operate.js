@@ -31,7 +31,8 @@ function operate() {
     let buttons = [...ex_buttons];
     console.log(buttons);
     buttons[1].onclick=function(){
-      console.log("yes: ", document.querySelectorAll('button'))
+      console.log("yes: ", document.querySelectorAll('button'));
+      window.close();
     };
     let yes = buttons[1].click();
 
