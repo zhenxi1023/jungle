@@ -160,7 +160,7 @@
 </body>
 <script>
   document.body.addEventListener("DOMNodeRemoved", function (event) {
-    console.log(event)
+    console.log(event.target.id)
   });
 
   document.addEventListener('readystatechange', function (event) {

@@ -11,8 +11,10 @@ document.addEventListener('readystatechange', function (event) {
 });
 
 
-document.body.addEventListener("DOMNodeRemoved", function () {
-  window.close();
+document.body.addEventListener("DOMNodeRemoved", function (event) {
+  if (event.target.id === "ayb-reviews") {
+    console.log("ayb-reviews")
+  }
 });
 
 
