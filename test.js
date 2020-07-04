@@ -57,7 +57,26 @@ function select_orders_all_in_page() {
       tabs.forEach(function (item) {
         chrome.tabs.sendMessage(item.id, {message: 'select_all', index: item.index}, function (response) {
           // do nothing
-          console.log(response)
+          if (!response) {
+            chrome.tabs.executeScript(item.id, {file: 'main.js'}, function (array) {
+              chrome.tabs.query({active: true, currentWindow: true}, function (tabs1) {
+                let port = chrome.extension.connect({name: 'Jungle'});
+
+                port.postMessage({id: tabs[0].id});
+                port.onMessage.addListener(message=>{
+                  // do nothing
+                  console.log("get message: ", message);
+                });
+
+                tabs1.forEach(function (it) {
+                  chrome.tabs.sendMessage(it.id, {message: 'select_all', index: it.index}, function (response) {
+                    // do nothing
+                    console.log(response)
+                  })
+                });
+              })
+            })
+          }
         })
       });
 

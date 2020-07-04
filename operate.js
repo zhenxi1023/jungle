@@ -34,7 +34,7 @@ function operate() {
       console.log("yes: ", document.querySelectorAll('button'));
       setTimeout(function () {
         window.close();
-      }, 3500);
+      }, 5000);
     };
     let yes = buttons[1].click();
 
