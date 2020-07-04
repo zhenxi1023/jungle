@@ -37,3 +37,19 @@ function operate() {
 
 }
 
+
+window.onload = function (event) {
+  let ex_buttons = document.getElementById("ayb-reviews").querySelectorAll("button");
+  console.log("onload: ", ex_buttons)
+}
+
+
+
+// setInterval(function () {
+//   let ex_buttons = document.getElementById("ayb-reviews").querySelectorAll("button");
+//   let b = [...ex_buttons];
+//   if (b.length !== 2) {
+//     window.close();
+//   }
+// })
+//
