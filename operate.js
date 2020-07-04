@@ -12,9 +12,10 @@ document.addEventListener('readystatechange', function (event) {
 
 
 document.body.addEventListener("DOMNodeRemoved", function (event) {
-  console.log(event.target)
-  if (event.target.id === "ayb-reviews") {
+  // console.log(event.target)
+  if (event.target.class === "ayb-reviews-buttons-container") {
     console.log("ayb-reviews")
+    // window.close();
   }
 });
 
