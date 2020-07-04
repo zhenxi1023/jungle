@@ -32,7 +32,9 @@ function operate() {
     console.log(buttons);
     buttons[1].onclick=function(){
       console.log("yes: ", document.querySelectorAll('button'));
-      window.close();
+      setTimeout(function () {
+        window.close();
+      }, 3500);
     };
     let yes = buttons[1].click();
 
