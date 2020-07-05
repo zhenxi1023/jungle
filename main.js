@@ -23,7 +23,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 function select_all(currentIndex) {
   // get_marketplace_id(select_step1(), currentIndex);
-  select_step2(select_step1(), currentIndex);
+  let ex_ids = document.querySelectorAll("option.sc-mkt-picker-switcher-select-option[selected]");
+  let ids = [...ex_ids];
+  ids.forEach(function (item) {
+    let value = item.value;
+    let r5 = /mons_sel_mkid=(.+)/;
+    let marketplaceId = value.match(r5)[1];
+    select_step2(select_step1(), currentIndex, marketplaceId);
+  })
+
   // let arr = ["/zhenxi1023/jungle", "/zhenxi1023", "/zhenxi1023/type"];
   //
   // console.log(arr);
@@ -73,8 +81,9 @@ function get_marketplace_id(array, currentIndex) {
 }
 
 
-
-function select_step2(array, currentIndex, marketplaceId="ATVPDKIKX0DER") {
+// document.querySelectorAll("option.sc-mkt-picker-switcher-select-option") return NodeList
+// currnetSelect it.selected=true marketplaceId=it.value(with r2)
+function select_step2(array, currentIndex, marketplaceId) {
   array.forEach(function (item) {
     window.open(`/messaging/reviews?orderId=${item.href}&marketplaceId=${marketplaceId}`);
   });

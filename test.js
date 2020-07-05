@@ -1,25 +1,25 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  let $start = document.getElementById('start');
-  let $stop = document.getElementById('stop');
+  // let $start = document.getElementById('start');
+  // let $stop = document.getElementById('stop');
   let $selectAll = document.getElementById("amz-select-all");
 
 
-  $start.addEventListener('click', function (event) {
-    // if (!is_clicked) {
-    //
-    //   window.sessionStorage.setItem("x_amz_jungle_is_clicked", "true");
-    // } else {
-    //   restart_listen();
-    // }
-    start_listen();
-  }, true);
-
-
-  $stop.addEventListener('click', function (event) {
-    stop_ops();
-  }, true);
+  // $start.addEventListener('click', function (event) {
+  //   // if (!is_clicked) {
+  //   //
+  //   //   window.sessionStorage.setItem("x_amz_jungle_is_clicked", "true");
+  //   // } else {
+  //   //   restart_listen();
+  //   // }
+  //   start_listen();
+  // }, true);
+  //
+  //
+  // $stop.addEventListener('click', function (event) {
+  //   stop_ops();
+  // }, true);
 
 
   // $selectAll.removeEventListener('click', click, true);
